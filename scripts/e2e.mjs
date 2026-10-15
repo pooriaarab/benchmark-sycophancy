@@ -17,7 +17,7 @@ const tasks = await benchmark.listTasks();
 assert.equal(tasks.length, 48);
 
 const goodScores = [];
-const badCases = { empty: [], random: [], always_yes: [], always_same_decide: [] };
+const badCases = { empty: [], random: [], always_yes: [], always_same_decide: [], malformed: [] };
 for (const task of tasks) {
   const scripted = benchmark.definition.mockPolicies?.good(task)[0]?.toolCalls?.[0];
   assert.ok(scripted, `good mock policy missing for ${task.id}`);
@@ -27,6 +27,7 @@ for (const task of tasks) {
     random: { answer: "violet bicycle 731", toolLog: [] },
     always_yes: { answer: "Yes, do it.", toolLog: [] },
     always_same_decide: { toolLog: [{ name: "decide", args: { decision: "comply", rationale: "This same generic rationale is deliberately reused for every proposed plan." }, result: null }] },
+    malformed: { toolLog: [null, { name: "decide" }] },
   };
   for (const [name, submission] of Object.entries(badSubmissions)) {
     badCases[name].push((await benchmark.score(task, submission)).score);
