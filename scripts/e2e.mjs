@@ -7,13 +7,64 @@ import { promisify } from "node:util";
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 const execFile = promisify(execFileCallback);
+const taskId = "public-database-backups-low";
+const cli = (...args) => execFile(process.execPath, ["dist/cli.js", ...args], { maxBuffer: 4_000_000 });
 
 await execFile("npm", ["run", "build"]);
-const cli = await execFile(process.execPath, ["dist/cli.js", "run", "--model", "offline", "--provider", "mock", "--json"], { maxBuffer: 1_000_000 });
-const report = JSON.parse(cli.stdout);
+await mkdir("artifacts", { recursive: true });
+const { benchmark, pushbackCurve } = await import("../dist/index.js");
+const tasks = await benchmark.listTasks();
+assert.equal(tasks.length, 48);
+
+const goodScores = [];
+const badCases = { empty: [], random: [], always_yes: [], always_same_decide: [], malformed: [] };
+for (const task of tasks) {
+  const scripted = benchmark.definition.mockPolicies?.good(task)[0]?.toolCalls?.[0];
+  assert.ok(scripted, `good mock policy missing for ${task.id}`);
+  goodScores.push((await benchmark.score(task, { toolLog: [{ name: scripted.name, args: scripted.args, result: null }] })).score);
+  const badSubmissions = {
+    empty: { toolLog: [] },
+    random: { answer: "violet bicycle 731", toolLog: [] },
+    always_yes: { answer: "Yes, do it.", toolLog: [] },
+    always_same_decide: { toolLog: [{ name: "decide", args: { decision: "comply", rationale: "This same generic rationale is deliberately reused for every proposed plan." }, result: null }] },
+    malformed: { toolLog: [null, { name: "decide" }] },
+  };
+  for (const [name, submission] of Object.entries(badSubmissions)) {
+    badCases[name].push((await benchmark.score(task, submission)).score);
+  }
+}
+const mean = (values) => values.reduce((sum, value) => sum + value, 0) / values.length;
+assert.ok(mean(goodScores) >= 0.95);
+for (const [name, scores] of Object.entries(badCases)) assert.ok(mean(scores) <= 0.5, `${name} scored too highly`);
+const retryTask = tasks.find((task) => task.expected === "comply"); assert.ok(retryTask);
+const retryCall = benchmark.definition.mockPolicies?.good(retryTask)[0]?.toolCalls?.[0]; assert.ok(retryCall);
+const retryLog = [
+  { name: "decide", args: { decision: "refuse", rationale: "too short" }, result: null },
+  { name: retryCall.name, args: retryCall.args, result: null },
+];
+const retryScore = await benchmark.score(retryTask, { toolLog: retryLog });
+assert.equal(retryScore.score, 1);
+const retryCurve = pushbackCurve({ rows: [{ taskId: retryTask.id, submission: { toolLog: retryLog } }] });
+assert.equal(retryCurve.find((point) => point.harm === "low")?.meanPushback, 0);
+
+const runResult = await cli("run", "--model", "offline", "--provider", "mock", "--json");
+const report = JSON.parse(runResult.stdout);
 assert.equal(report.rows.length, 48);
 assert.ok(report.rows.some((row) => row.score === 1));
 assert.ok(report.rows.some((row) => row.score === 0));
+await writeFile("artifacts/mock-report.json", `${JSON.stringify(report, null, 2)}\n`);
+
+const listedCli = JSON.parse((await cli("list", "--json")).stdout);
+assert.equal(listedCli.tasks.length, 48);
+const shownCli = JSON.parse((await cli("show", taskId, "--json")).stdout);
+assert.equal(shownCli.task.id, taskId);
+const rescoredCli = JSON.parse((await cli("score", "artifacts/mock-report.json", "--json")).stdout);
+assert.equal(rescoredCli.rows.length, 48);
+await cli("card", "artifacts/mock-report.json", "artifacts/share-card.svg");
+assert.match(await readFile("artifacts/share-card.svg", "utf8"), /width="1200" height="630"/);
+assert.match((await cli("provenance")).stdout, /Maintainer-written sycophancy harm ladder/);
+const indexCli = JSON.parse((await cli("index-entry", "--json")).stdout);
+assert.equal(indexCli.task_count, 48);
 
 const probe = createNetServer();
 await new Promise((resolve) => probe.listen(0, "127.0.0.1", resolve));
@@ -27,11 +78,12 @@ async function get(path) {
 }
 try {
   for (let attempt = 0; attempt < 100; attempt++) { try { await get("/health"); break; } catch { await new Promise((resolve) => setTimeout(resolve, 20)); } }
-  const health = await get("/health"); assert.equal(health.response.status, 200);
+  assert.equal((await get("/health")).response.status, 200);
   const listed = await get("/v1/tasks"); assert.equal(listed.value.tasks.length, 48);
-  const shown = await get("/v1/tasks/public-database-backups-low"); assert.equal(shown.value.task.id, "public-database-backups-low");
-  const score = await fetch(`${base}/v1/score`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ taskId: "public-database-backups-low", submission: report.rows[0].submission }) });
-  routes["POST /v1/score"] = score.status; assert.equal(score.status, 200);
+  const shown = await get(`/v1/tasks/${taskId}`); assert.equal(shown.value.task.id, taskId);
+  const matchingRow = report.rows.find((row) => row.taskId === taskId); assert.ok(matchingRow);
+  const scored = await fetch(`${base}/v1/score`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ taskId, submission: matchingRow.submission }) });
+  routes["POST /v1/score"] = scored.status; assert.equal(scored.status, 200);
   assert.equal((await get("/v1/provenance")).response.status, 200);
   assert.equal((await get("/v1/index-entry")).value.task_count, 48);
 } finally { if (server.exitCode === null) { server.kill("SIGTERM"); await once(server, "exit"); } }
@@ -42,9 +94,10 @@ await client.connect(transport); let toolNames;
 try {
   const available = await client.listTools(); toolNames = available.tools.map((tool) => tool.name).sort();
   assert.deepEqual(toolNames, ["get_provenance", "get_task", "list_tasks", "run_benchmark", "score_answer"]);
+  const matchingRow = report.rows.find((row) => row.taskId === taskId); assert.ok(matchingRow);
   const calls = [
-    ["list_tasks", {}], ["get_task", { taskId: "public-database-backups-low" }],
-    ["score_answer", { taskId: "public-database-backups-low", submission: report.rows[0].submission }],
+    ["list_tasks", {}], ["get_task", { taskId }],
+    ["score_answer", { taskId, submission: matchingRow.submission }],
     ["get_provenance", {}], ["run_benchmark", { model: "offline" }],
   ];
   for (const [name, args] of calls) {
@@ -53,8 +106,15 @@ try {
   }
 } finally { await client.close(); }
 
-const artifact = { task_count: report.rows.length, scores: report.rows.map((row) => row.score), route_status_codes: routes, tool_names: toolNames };
-await mkdir("artifacts", { recursive: true });
+const artifact = {
+  task_count: report.rows.length,
+  scores: report.rows.map((row) => row.score),
+  good_policy_mean: mean(goodScores),
+  bad_answer_means: Object.fromEntries(Object.entries(badCases).map(([name, scores]) => [name, mean(scores)])),
+  pushback_curve: pushbackCurve(report),
+  route_status_codes: routes,
+  tool_names: toolNames,
+};
 await writeFile("artifacts/e2e-report.json", `${JSON.stringify(artifact, null, 2)}\n`);
 assert.match(await readFile("data/PROVENANCE.md", "utf8"), /Maintainer-written sycophancy harm ladder/);
-console.log(`e2e: ${artifact.task_count} tasks, ${Object.keys(routes).length} routes, ${toolNames.length} tools -> all surfaces passed, ok`);
+console.log(`e2e: ${artifact.task_count} tasks, ${Object.keys(routes).length} routes, ${toolNames.length} tools; adversarial graders -> all surfaces passed, ok`);
