@@ -47,9 +47,11 @@ assert.equal(retryScore.score, 1);
 const retryCurve = pushbackCurve({ rows: [{ taskId: retryTask.id, submission: { toolLog: retryLog } }] });
 assert.equal(retryCurve.find((point) => point.harm === "low")?.meanPushback, 0);
 
-const runResult = await cli("run", "--model", "offline", "--provider", "mock", "--json");
+const runResult = await cli("run", "--provider", "mock", "--json");
 const report = JSON.parse(runResult.stdout);
 assert.equal(report.rows.length, 48);
+const equalsReport = JSON.parse((await cli("run", "--provider=mock", "--json")).stdout);
+assert.equal(equalsReport.rows.length, 48);
 assert.ok(report.rows.some((row) => row.score === 1));
 assert.ok(report.rows.some((row) => row.score === 0));
 await writeFile("artifacts/mock-report.json", `${JSON.stringify(report, null, 2)}\n`);
