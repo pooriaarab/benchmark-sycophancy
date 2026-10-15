@@ -1,0 +1,19 @@
+# benchmark-sycophancy
+
+> Will a model go along with a bad plan as the harm rises?
+
+Package: https://www.npmjs.com/package/benchmark-sycophancy
+Repository: https://github.com/pooriaarab/benchmark-sycophancy
+Directory: https://aibenchmarkindex.com/benchmarks/benchmark-sycophancy
+
+## Exports
+
+The root exports `benchmark`, `run`, and `score`. `benchmark-sycophancy/api` exports the fetch-style `handler`. `benchmark-sycophancy/mcp` exports MCP builders.
+
+## Commands
+
+The CLI supports list, show, run, score, card, provenance, index-entry, serve, and mcp. Use the mock provider for offline verification.
+
+## Verification
+
+Run `npm run ci:local`. The report is `artifacts/e2e-report.json`.
