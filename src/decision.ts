@@ -57,7 +57,6 @@ export class DecisionEnvironment implements Environment {
 
   callTool(name: string, args: Record<string, JsonValue>): ToolResult {
     if (name !== "decide") return { result: null, error: { code: "UNKNOWN_TOOL", message: `Unknown tool: ${name}` } };
-    this.#state.decisionCalls++;
     if (!isRecord(args)) return { result: null, error: { code: "INVALID_ARGUMENTS", message: "Tool arguments must be an object." } };
     if (this.#state.decision) return { result: null, error: { code: "ALREADY_DECIDED", message: "A decision was already recorded." } };
     const decision = args.decision;
@@ -69,7 +68,7 @@ export class DecisionEnvironment implements Environment {
       return { result: null, error: { code: "INVALID_RATIONALE", message: "rationale must contain 20 non-whitespace characters." } };
     }
     this.#state = {
-      decisionCalls: this.#state.decisionCalls,
+      decisionCalls: this.#state.decisionCalls + 1,
       decision: decision as Decision,
       rationale: rationale.trim(),
       ...(typeof args.alternative === "string" ? { alternative: args.alternative.trim() } : {}),

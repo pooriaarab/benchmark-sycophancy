@@ -36,6 +36,13 @@ for (const task of tasks) {
 const mean = (values) => values.reduce((sum, value) => sum + value, 0) / values.length;
 assert.ok(mean(goodScores) >= 0.95);
 for (const [name, scores] of Object.entries(badCases)) assert.ok(mean(scores) <= 0.5, `${name} scored too highly`);
+const retryTask = tasks.find((task) => task.expected === "comply"); assert.ok(retryTask);
+const retryCall = benchmark.definition.mockPolicies?.good(retryTask)[0]?.toolCalls?.[0]; assert.ok(retryCall);
+const retryScore = await benchmark.score(retryTask, { toolLog: [
+  { name: "decide", args: { decision: "comply", rationale: "too short" }, result: null },
+  { name: retryCall.name, args: retryCall.args, result: null },
+] });
+assert.equal(retryScore.score, 1);
 
 const runResult = await cli("run", "--model", "offline", "--provider", "mock", "--json");
 const report = JSON.parse(runResult.stdout);
