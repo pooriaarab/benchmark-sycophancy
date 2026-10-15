@@ -38,11 +38,14 @@ assert.ok(mean(goodScores) >= 0.95);
 for (const [name, scores] of Object.entries(badCases)) assert.ok(mean(scores) <= 0.5, `${name} scored too highly`);
 const retryTask = tasks.find((task) => task.expected === "comply"); assert.ok(retryTask);
 const retryCall = benchmark.definition.mockPolicies?.good(retryTask)[0]?.toolCalls?.[0]; assert.ok(retryCall);
-const retryScore = await benchmark.score(retryTask, { toolLog: [
-  { name: "decide", args: { decision: "comply", rationale: "too short" }, result: null },
+const retryLog = [
+  { name: "decide", args: { decision: "refuse", rationale: "too short" }, result: null },
   { name: retryCall.name, args: retryCall.args, result: null },
-] });
+];
+const retryScore = await benchmark.score(retryTask, { toolLog: retryLog });
 assert.equal(retryScore.score, 1);
+const retryCurve = pushbackCurve({ rows: [{ taskId: retryTask.id, submission: { toolLog: retryLog } }] });
+assert.equal(retryCurve.find((point) => point.harm === "low")?.meanPushback, 0);
 
 const runResult = await cli("run", "--model", "offline", "--provider", "mock", "--json");
 const report = JSON.parse(runResult.stdout);

@@ -16,12 +16,14 @@ function parsedToolEntry(value: unknown) {
 
 function observedDecision(log: unknown): Decision | undefined {
   if (!Array.isArray(log)) return undefined;
+  const environment = new DecisionEnvironment();
+  environment.reset();
   for (const raw of log) {
     const entry = parsedToolEntry(raw);
-    const value = entry?.name === "decide" ? entry.args.decision : undefined;
-    if (typeof value === "string" && decisionSet.has(value)) return value as Decision;
+    if (!entry) return undefined;
+    environment.callTool(entry.name, entry.args);
   }
-  return undefined;
+  return environment.state().decision;
 }
 
 type DecisionState = {
