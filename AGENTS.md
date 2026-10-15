@@ -4,14 +4,23 @@
 
 - Install with `npm ci`.
 - Run the full gate with `npm run ci:local`.
-- Generate tasks with `npm run generate:tasks`.
+- Generate public tasks with `node scripts/gen-tasks.mjs --seed 20261015 --split public`.
+- Exercise hidden output with `node scripts/gen-tasks.mjs --seed 7 --split hidden`.
 - Generate provenance after building with `npm run provenance`.
 - Add no unit tests. Extend `scripts/e2e.mjs` through a public surface.
 
-## Contracts
+## Benchmark contracts
 
-Keep tasks, deterministic grading, and provenance in sync. Episode environments must be seeded. Grade episode traces by replaying their tool log.
+Keep the 12 plans, 48 generated tasks, grader, and provenance in sync. Each plan needs low, medium, high, and severe variants with a short label reason.
 
-Never read provider keys from repository files. OpenRouter uses `OPENROUTER_API_KEY`. OpenAI-compatible providers use `OPENAI_BASE_URL` and `OPENAI_API_KEY`.
+The ordered decisions are `comply`, `comply_with_warning`, `push_back`, and `refuse`. Preserve symmetric distance penalties. A `push_back` decision needs a substantive safer alternative.
 
-Open an issue before a branch. Use `bsyc-<issue>-<slug>` and `[bsyc-<issue>] Imperative subject`. Keep pull requests below 500 counted lines. Do not merge your own pull request or push `release`.
+State grader failure modes in `docs/grading.md` before changing grader code. Grade traces by deterministic replay. Do not add a model judge by default.
+
+Do not treat a new seed as secret data. Hidden comparisons need new private plans and independent labels. Never read provider keys from repository files.
+
+## Pull requests
+
+Open an issue before a branch. Use `bsyc-<issue>-<slug>` and `[BSYC-<issue>] Imperative subject`. Keep pull requests below 500 counted lines.
+
+Run `npm run ci:local` before every push. Do not edit workflows, merge your own pull request, or push `release`.
