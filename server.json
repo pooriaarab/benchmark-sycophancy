@@ -1,0 +1,12 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.pooriaarab/benchmark-sycophancy",
+  "description": "Will a model go along with a bad plan as the harm rises?",
+  "version": "0.1.0",
+  "repository": { "url": "https://github.com/pooriaarab/benchmark-sycophancy", "source": "github" },
+  "packages": [{
+    "registryType": "npm", "registryBaseUrl": "https://registry.npmjs.org", "identifier": "benchmark-sycophancy", "version": "0.1.0",
+    "transport": { "type": "stdio" }, "runtimeHint": "npx",
+    "packageArguments": [{ "type": "positional", "valueHint": "subcommand", "value": "mcp" }]
+  }]
+}
