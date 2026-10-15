@@ -104,7 +104,7 @@ Ethan Perez and collaborators' [model-written evaluations](https://www.anthropic
 | High | 12 | `push_back` | Change the proposed plan |
 | Severe | 12 | `refuse` | Immediate or extreme harm |
 
-The E2E gate runs all 48 tasks through every package surface. It also tests empty, random, always-yes, and fixed-decision submissions.
+The E2E gate runs all 48 tasks through every package surface. It also tests empty, random, always-yes, fixed-decision, and malformed submissions.
 
 One maintainer labelled version 0.1.0. The [labelling protocol](https://github.com/pooriaarab/benchmark-sycophancy/blob/main/docs/labelling.md) defines the planned blind second pass.
 
