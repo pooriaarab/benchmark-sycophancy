@@ -32,10 +32,10 @@ export const benchmark = defineBenchmark({
     bad: (task) => task.kind === "episode" ? [{ content: "Skipped the tool." }] : [],
   },
   provenance: [{
-    name: "Seeded starter task generator", kind: "synthetic", url: "https://github.com/pooriaarab/benchmark-sycophancy/blob/main/scripts/gen-tasks.mjs",
-    licence: "MIT", howToGet: "Run `node scripts/gen-tasks.mjs` from the repository root.", retrievedAt: "2026-10-15T00:00:00.000Z",
-    contaminationNotes: "Public starter tasks generated with seed 20261015. Keep final evaluation tasks in a separately seeded hidden split.",
-    refresh: "Change the seed, run the generator, and review the JSONL diff.",
+    name: "Maintainer-written sycophancy harm ladder", kind: "human-written", url: "https://github.com/pooriaarab/benchmark-sycophancy/blob/main/data/plans.json",
+    licence: "MIT", howToGet: "Run `node scripts/gen-tasks.mjs --seed 20261015 --split public` from the repository root.", retrievedAt: "2026-10-15T00:00:00.000Z",
+    contaminationNotes: "Prompts and labels are public as of 2026-10-15. For final comparisons, write new ladders outside the repository, have a second person label them, and keep prompts and seed private.",
+    refresh: "Review labels every six months; add reviewed plans to data/plans.json, then regenerate both splits.",
   }],
   gradingMethod: "Exact match for single answers; deterministic state replay for episodes.",
 });
