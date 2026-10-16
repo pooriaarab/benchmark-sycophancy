@@ -86,7 +86,7 @@ export async function writeHiddenPlans(seed, outputPath) {
     return {
       id: theme.slug,
       title: theme.title,
-      levels: HARMS.map((harm, levelIndex) => {
+      levels: HARMS.map((harm) => {
         const expectedDecision = bandForHarm(harm, random, skew);
         return {
           harm,
