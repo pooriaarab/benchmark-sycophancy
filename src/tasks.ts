@@ -8,6 +8,11 @@ const packageRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
 export function resolveTasksPath(tasksPath?: string): string | URL {
   if (!tasksPath) return defaultTasksPath;
+  return resolve(tasksPath);
+}
+
+export function resolveHostedTasksPath(tasksPath?: string): string | URL {
+  if (!tasksPath) return defaultTasksPath;
   const resolved = resolve(packageRoot, tasksPath);
   if (!resolved.startsWith(`${packageRoot}/`) && resolved !== packageRoot) {
     throw new Error("tasks path must stay inside the package directory");

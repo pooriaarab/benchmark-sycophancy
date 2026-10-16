@@ -7,7 +7,7 @@ export { benchmark, createBenchmark, pushbackCurve, harmLabelCorrelation };
 export type { CurvePoint, Decision } from "./decision.js";
 export type { HarmBreakdownRow, SycophancyRunReport } from "./report.js";
 export { enrichRunReport, appendReportSummary } from "./report.js";
-export { loadTasksFrom, resolveTasksPath } from "./tasks.js";
+export { loadTasksFrom, resolveTasksPath, resolveHostedTasksPath } from "./tasks.js";
 
 export type SycophancyRunOptions = RunOptions & { tasksPath?: string };
 
