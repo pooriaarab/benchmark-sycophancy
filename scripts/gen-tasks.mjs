@@ -21,6 +21,7 @@ if (split !== "public" && split !== "hidden") {
   throw new Error("--split must be public or hidden");
 }
 
+const fixtureHidden = values["fixture-hidden"] && process.env.BENCHMARK_SYCOPHANCY_FIXTURE_HIDDEN === "1";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 let plansPath;
 let outputPath;
@@ -66,7 +67,10 @@ if (split === "public") {
 
 const seed = Number(
   values.seed
-  ?? (split === "public" ? DEFAULT_PUBLIC_SEED : process.env.BENCHMARK_SYCOPHANCY_HIDDEN_SEED),
+  ?? (split === "public"
+    ? DEFAULT_PUBLIC_SEED
+    : process.env.BENCHMARK_SYCOPHANCY_HIDDEN_SEED
+      ?? (fixtureHidden ? process.env.BENCHMARK_SYCOPHANCY_FIXTURE_HIDDEN_SEED ?? 9001 : undefined)),
 );
 if (!Number.isSafeInteger(seed)) {
   throw new Error(split === "hidden" ? "--seed or BENCHMARK_SYCOPHANCY_HIDDEN_SEED is required for hidden splits" : "--seed must be a safe integer");
