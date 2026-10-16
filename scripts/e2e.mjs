@@ -215,7 +215,7 @@ const transport = new StdioClientTransport({
   cwd: process.cwd(),
   stderr: "pipe",
 });
-const client = new Client({ name: "benchmark-sycophancy-e2e", version: "0.1.0" });
+const client = new Client({ name: "benchmark-sycophancy-e2e", version: "0.2.0" });
 await client.connect(transport);
 let toolNames;
 try {
