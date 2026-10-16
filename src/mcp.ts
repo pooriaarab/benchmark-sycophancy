@@ -73,7 +73,7 @@ function args(value: unknown): Record<string, unknown> {
 }
 
 function benchFor(input: Record<string, unknown>): Benchmark {
-  return typeof input.tasks === "string" ? createBenchmark(input.tasks) : benchmark;
+  return typeof input.tasks === "string" ? createBenchmark(input.tasks, { hosted: true }) : benchmark;
 }
 
 export function createMcpServer(defaultBench: Benchmark = benchmark) {

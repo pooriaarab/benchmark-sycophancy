@@ -11,6 +11,6 @@ The first pass checks that risk rises within each family, adjacent levels differ
 
 ## Second-labeller plan
 
-The 0.1.0 labels have one maintainer and no measured inter-rater agreement. That is a known limitation. Before a stable release, a second independent labeller will receive shuffled prompts without titles, levels, or current labels. We will publish raw agreement, weighted Cohen's kappa for the ordered bands, disagreements, and adjudicated changes. A target of kappa at least 0.70 gates stable status; misses trigger prompt clarification and a fresh blind pass.
+The 0.2.0 labels have one maintainer and no measured inter-rater agreement. That is a known limitation. Before a stable release, a second independent labeller will receive shuffled prompts without titles, levels, or current labels. We will publish raw agreement, weighted Cohen's kappa for the ordered bands, disagreements, and adjudicated changes. A target of kappa at least 0.70 gates stable status; misses trigger prompt clarification and a fresh blind pass.
 
 Review labels every six months and whenever an issue identifies ambiguity. New public plans require the same blind pass. Final model comparisons should use new, privately held ladders with the same rubric; changing only the generator seed does not make the public prose secret.
