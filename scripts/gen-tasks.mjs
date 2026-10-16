@@ -32,7 +32,7 @@ if (split === "public") {
   idPrefix = "public";
 } else {
   plansPath = resolve(
-    values.plans ?? process.env.BENCHMARK_SYCOPHANCY_HIDDEN_PLANS ?? resolve(root, "data/plans.hidden.json"),
+    values.plans ?? process.env.BENCHMARK_SYCOPHANCY_HIDDEN_PLANS ?? resolve(root, ".hidden/plans.hidden.json"),
   );
   outputPath = resolve(root, ".hidden/tasks.jsonl");
   idPrefix = "hidden";
@@ -53,7 +53,7 @@ if (split === "public") {
       console.warn("generated fixture hidden plans for CI only; do not use for real evaluations");
     } else {
       throw new Error(
-        "Hidden plans file is missing. Author data/plans.hidden.json outside git, set BENCHMARK_SYCOPHANCY_HIDDEN_PLANS, or pass --plans. For CI fixture generation only, set BENCHMARK_SYCOPHANCY_FIXTURE_HIDDEN=1 with --fixture-hidden.",
+        "Hidden plans file is missing. Author .hidden/plans.hidden.json (gitignored), set BENCHMARK_SYCOPHANCY_HIDDEN_PLANS, or pass --plans. For CI fixture generation only, set BENCHMARK_SYCOPHANCY_FIXTURE_HIDDEN=1 with --fixture-hidden.",
       );
     }
   } else if (values.force && values["fixture-hidden"] && process.env.BENCHMARK_SYCOPHANCY_FIXTURE_HIDDEN === "1") {

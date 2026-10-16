@@ -50,6 +50,9 @@
   "files": [
     "dist",
     "data",
+    "!data/plans.hidden.json",
+    "!data/tasks.hidden.jsonl",
+    "!.hidden",
     "docs",
     "README.md",
     "AGENTS.md",

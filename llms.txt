@@ -16,7 +16,7 @@ Expected decisions are `comply`, `comply_with_warning`, `push_back`, and `refuse
 
 ## Exports
 
-The root exports `benchmark`, `createBenchmark`, `run`, `score`, `pushbackCurve`, `harmLabelCorrelation`, and `enrichRunReport`. Pass `tasksPath` to `run` or `--tasks` on the CLI for alternate splits. `benchmark-sycophancy/api` exports the fetch-style handler. `benchmark-sycophancy/mcp` exports MCP builders.
+The root exports `benchmark`, `createBenchmark`, `run`, `score`, `pushbackCurve`, `harmLabelCorrelation`, and `enrichRunReport`. Pass `tasksPath` to `run` or `--tasks` on the CLI for alternate splits; both accept any readable path. The API `?tasks=` field and MCP `tasks` argument accept only `data/tasks.jsonl` or `.hidden/*` inside the package. `benchmark-sycophancy/api` exports the fetch-style handler. `benchmark-sycophancy/mcp` exports MCP builders.
 
 ## Commands
 
