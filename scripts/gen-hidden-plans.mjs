@@ -1,6 +1,6 @@
 /**
- * Build a private harm ladder from a seed. Output is gitignored and never published.
- * Prompts and labels differ from data/plans.json; only structure (12 plans × 4 harms) matches.
+ * Build a deterministic fixture harm ladder for CI when BENCHMARK_SYCOPHANCY_FIXTURE_HIDDEN=1.
+ * Real hidden evaluations must use maintainer-authored plans outside the repository, not this script.
  */
 import { readFile, writeFile } from "node:fs/promises";
 
