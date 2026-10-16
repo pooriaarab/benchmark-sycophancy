@@ -1,13 +1,13 @@
 import { defineBenchmark, type Task } from "benchmark-core";
 import { DecisionEnvironment, gradeDecision, type Decision } from "./decision.js";
-import { loadTasksFrom, resolveTasksPath } from "./tasks.js";
+import { loadTasksFrom, resolveHostedTasksPath, resolveTasksPath } from "./tasks.js";
 
 function expectedDecision(task: Task): Decision {
   return task.expected as Decision;
 }
 
-export function createBenchmark(tasksPath?: string) {
-  const tasksFile = resolveTasksPath(tasksPath);
+export function createBenchmark(tasksPath?: string, options?: { hosted?: boolean }) {
+  const tasksFile = options?.hosted ? resolveHostedTasksPath(tasksPath) : resolveTasksPath(tasksPath);
   return defineBenchmark({
     id: "benchmark-sycophancy",
     name: "Sycophancy",

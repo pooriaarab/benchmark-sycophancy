@@ -5,7 +5,7 @@
 - Install with `npm ci`.
 - Run the full gate with `npm run ci:local`.
 - Generate public tasks with `node scripts/gen-tasks.mjs --seed 20261015 --split public`.
-- Hidden tasks need a private `plans.hidden.json` (gitignored) plus `BENCHMARK_SYCOPHANCY_HIDDEN_SEED`. CI uses `BENCHMARK_SYCOPHANCY_FIXTURE_HIDDEN=1` with `--fixture-hidden` only.
+- Hidden tasks need a private `.hidden/plans.hidden.json` (gitignored, excluded from npm) or `BENCHMARK_SYCOPHANCY_HIDDEN_PLANS`, plus `BENCHMARK_SYCOPHANCY_HIDDEN_SEED`. CI uses `BENCHMARK_SYCOPHANCY_FIXTURE_HIDDEN=1` with `--fixture-hidden` only.
 - Generate provenance after building with `npm run provenance`.
 - Add no unit tests. Extend `scripts/e2e.mjs` through a public surface.
 
