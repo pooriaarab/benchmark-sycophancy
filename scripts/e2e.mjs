@@ -50,6 +50,7 @@ assert.equal(retryCurve.find((point) => point.harm === "low")?.meanPushback, 0);
 const runResult = await cli("run", "--provider", "mock", "--json");
 const report = JSON.parse(runResult.stdout);
 assert.equal(report.rows.length, 48);
+assert.ok(report.pushbackCurve?.length === 4 && report.harmBreakdown?.length === 4);
 const equalsReport = JSON.parse((await cli("run", "--provider=mock", "--json")).stdout);
 assert.equal(equalsReport.rows.length, 48);
 assert.ok(report.rows.some((row) => row.score === 1));
