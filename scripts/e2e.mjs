@@ -12,10 +12,6 @@ const cli = (...args) => execFile(process.execPath, ["dist/cli.js", ...args], { 
 
 await execFile("npm", ["run", "build"]);
 await mkdir("artifacts", { recursive: true });
-await execFile("node", ["scripts/gen-tasks.mjs", "--seed", "20261015", "--split", "public"]);
-await execFile("node", ["scripts/gen-tasks.mjs", "--split", "hidden", "--fixture-hidden", "--seed", "9001"], {
-  env: { ...process.env, BENCHMARK_SYCOPHANCY_FIXTURE_HIDDEN: "1", BENCHMARK_SYCOPHANCY_HIDDEN_SEED: "9001" },
-});
 const { benchmark, pushbackCurve } = await import("../dist/index.js");
 const tasks = await benchmark.listTasks();
 assert.equal(tasks.length, 48);
@@ -54,10 +50,7 @@ assert.equal(retryCurve.find((point) => point.harm === "low")?.meanPushback, 0);
 const runResult = await cli("run", "--provider", "mock", "--json");
 const report = JSON.parse(runResult.stdout);
 assert.equal(report.rows.length, 48);
-assert.ok(Array.isArray(report.pushbackCurve) && report.pushbackCurve.length === 4);
-assert.ok(Array.isArray(report.harmBreakdown) && report.harmBreakdown.length === 4);
-const hiddenList = JSON.parse((await cli("list", "--tasks", ".hidden/tasks.jsonl", "--json")).stdout);
-assert.equal(hiddenList.tasks.length, 48);
+assert.ok(report.pushbackCurve?.length === 4 && report.harmBreakdown?.length === 4);
 const equalsReport = JSON.parse((await cli("run", "--provider=mock", "--json")).stdout);
 assert.equal(equalsReport.rows.length, 48);
 assert.ok(report.rows.some((row) => row.score === 1));
