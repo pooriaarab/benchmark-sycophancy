@@ -1,16 +1,18 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { access, mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
 import { writeHiddenPlans } from "./gen-hidden-plans.mjs";
 
 const DEFAULT_PUBLIC_SEED = 20261015;
-const DEFAULT_HIDDEN_SEED = 3847291;
 
 const { values } = parseArgs({
   options: {
     seed: { type: "string" },
     split: { type: "string", default: "public" },
+    plans: { type: "string" },
+    "fixture-hidden": { type: "boolean", default: false },
+    force: { type: "boolean", default: false },
   },
 });
 
@@ -18,9 +20,6 @@ const split = values.split;
 if (split !== "public" && split !== "hidden") {
   throw new Error("--split must be public or hidden");
 }
-
-const seed = Number(values.seed ?? (split === "hidden" ? DEFAULT_HIDDEN_SEED : DEFAULT_PUBLIC_SEED));
-if (!Number.isSafeInteger(seed)) throw new Error("--seed must be a safe integer");
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 let plansPath;
@@ -32,11 +31,45 @@ if (split === "public") {
   outputPath = resolve(root, "data/tasks.jsonl");
   idPrefix = "public";
 } else {
-  plansPath = resolve(root, "data/plans.hidden.json");
+  plansPath = resolve(
+    values.plans ?? process.env.BENCHMARK_SYCOPHANCY_HIDDEN_PLANS ?? resolve(root, "data/plans.hidden.json"),
+  );
   outputPath = resolve(root, ".hidden/tasks.jsonl");
   idPrefix = "hidden";
   await mkdir(dirname(outputPath), { recursive: true });
-  await writeHiddenPlans(seed, plansPath);
+
+  let plansPresent = true;
+  try {
+    await access(plansPath);
+  } catch {
+    plansPresent = false;
+  }
+
+  if (!plansPresent) {
+    if (values["fixture-hidden"] && process.env.BENCHMARK_SYCOPHANCY_FIXTURE_HIDDEN === "1") {
+      const fixtureSeed = Number(values.seed ?? process.env.BENCHMARK_SYCOPHANCY_FIXTURE_HIDDEN_SEED ?? 9001);
+      if (!Number.isSafeInteger(fixtureSeed)) throw new Error("fixture hidden seed must be a safe integer");
+      await writeHiddenPlans(fixtureSeed, plansPath);
+      console.warn("generated fixture hidden plans for CI only; do not use for real evaluations");
+    } else {
+      throw new Error(
+        "Hidden plans file is missing. Author data/plans.hidden.json outside git, set BENCHMARK_SYCOPHANCY_HIDDEN_PLANS, or pass --plans. For CI fixture generation only, set BENCHMARK_SYCOPHANCY_FIXTURE_HIDDEN=1 with --fixture-hidden.",
+      );
+    }
+  } else if (values.force && values["fixture-hidden"] && process.env.BENCHMARK_SYCOPHANCY_FIXTURE_HIDDEN === "1") {
+    const fixtureSeed = Number(values.seed ?? process.env.BENCHMARK_SYCOPHANCY_FIXTURE_HIDDEN_SEED ?? 9001);
+    if (!Number.isSafeInteger(fixtureSeed)) throw new Error("fixture hidden seed must be a safe integer");
+    await writeHiddenPlans(fixtureSeed, plansPath);
+    console.warn("regenerated fixture hidden plans because --force was set");
+  }
+}
+
+const seed = Number(
+  values.seed
+  ?? (split === "public" ? DEFAULT_PUBLIC_SEED : process.env.BENCHMARK_SYCOPHANCY_HIDDEN_SEED),
+);
+if (!Number.isSafeInteger(seed)) {
+  throw new Error(split === "hidden" ? "--seed or BENCHMARK_SYCOPHANCY_HIDDEN_SEED is required for hidden splits" : "--seed must be a safe integer");
 }
 
 const plans = JSON.parse(await readFile(plansPath, "utf8"));
