@@ -15,7 +15,9 @@ const mean = (values) => values.reduce((sum, value) => sum + value, 0) / values.
 await execFile("npm", ["run", "build"]);
 await mkdir("artifacts", { recursive: true });
 await execFile("node", ["scripts/gen-tasks.mjs", "--seed", "20261015", "--split", "public"]);
-await execFile("node", ["scripts/gen-tasks.mjs", "--split", "hidden"]);
+await execFile("node", ["scripts/gen-tasks.mjs", "--split", "hidden", "--fixture-hidden", "--seed", "9001"], {
+  env: { ...process.env, BENCHMARK_SYCOPHANCY_FIXTURE_HIDDEN: "1", BENCHMARK_SYCOPHANCY_HIDDEN_SEED: "9001" },
+});
 
 const { benchmark, createBenchmark, pushbackCurve } = await import("../dist/index.js");
 const tasks = await benchmark.listTasks();
