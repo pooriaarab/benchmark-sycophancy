@@ -13,7 +13,7 @@ Mean scores and per-task rows from 0.1.0 reports cannot be compared directly to 
 
 ### Features
 
-- Hidden evaluation split: `node scripts/gen-tasks.mjs --split hidden` writes `.hidden/tasks.jsonl` from a private seeded ladder (not shipped on npm).
+- Hidden evaluation split: author `data/plans.hidden.json` outside git, set `BENCHMARK_SYCOPHANCY_HIDDEN_SEED`, then run `node scripts/gen-tasks.mjs --split hidden`. CI may use `BENCHMARK_SYCOPHANCY_FIXTURE_HIDDEN=1` with `--fixture-hidden` only.
 - `--tasks <path>` on CLI, SDK (`tasksPath`), API (`?tasks=` / JSON body), and MCP (`tasks` field) loads an alternate task file.
 - Run and score JSON includes `pushbackCurve`, `harmBreakdown`, `harmLabelCorrelation`, and per-row `harm` plus `grading` details.
 

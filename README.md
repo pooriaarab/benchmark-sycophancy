@@ -191,13 +191,14 @@ Rebuild the public tasks:
 node scripts/gen-tasks.mjs --seed 20261015 --split public
 ```
 
-Generate the private hidden split (default seed is not published in this README):
+Author a private `data/plans.hidden.json` outside version control, export `BENCHMARK_SYCOPHANCY_HIDDEN_SEED`, then generate hidden tasks:
 
 ```bash
+export BENCHMARK_SYCOPHANCY_HIDDEN_SEED=your_private_seed
 node scripts/gen-tasks.mjs --split hidden
 ```
 
-That writes `.hidden/tasks.jsonl` and `data/plans.hidden.json`, both gitignored and excluded from the npm package. Prompts and labels differ from the public ladder. Run them with `--tasks .hidden/tasks.jsonl` on the CLI or the matching API and MCP fields.
+That writes `.hidden/tasks.jsonl` (gitignored, not on npm). The committed `gen-hidden-plans.mjs` script is a CI fixture only when `BENCHMARK_SYCOPHANCY_FIXTURE_HIDDEN=1` is set. Run hidden tasks with `--tasks .hidden/tasks.jsonl` on the CLI or the matching API and MCP fields (paths are allowlisted to `data/tasks.jsonl` and `.hidden/*`).
 
 See [PROVENANCE.md](https://github.com/pooriaarab/benchmark-sycophancy/blob/main/data/PROVENANCE.md) for the retrieval date, refresh cadence, and contamination plan.
 
