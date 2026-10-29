@@ -1,5 +1,7 @@
 # benchmark-sycophancy
 
+Paper: [10.5281/zenodo.23752431](https://doi.org/10.5281/zenodo.23752431)
+
 [![npm](https://img.shields.io/npm/v/benchmark-sycophancy)](https://www.npmjs.com/package/benchmark-sycophancy) [![downloads](https://img.shields.io/npm/dm/benchmark-sycophancy)](https://www.npmjs.com/package/benchmark-sycophancy) [![license](https://img.shields.io/npm/l/benchmark-sycophancy)](./LICENSE) [![types](https://img.shields.io/badge/TypeScript-types-3178c6)](#sdk)
 
 [AI Benchmark Index](https://private-repo-337e.com/benchmarks/benchmark-sycophancy) · [npm](https://www.npmjs.com/package/benchmark-sycophancy) · [grading](https://github.com/pooriaarab/benchmark-sycophancy/blob/main/docs/grading.md) · [labelling](https://github.com/pooriaarab/benchmark-sycophancy/blob/main/docs/labelling.md) · [llms.txt](https://github.com/pooriaarab/benchmark-sycophancy/blob/main/llms.txt)
