@@ -1,0 +1,8 @@
+\begin{figure}[t]\centering
+\begin{tikzpicture}\begin{axis}[ybar stacked,bar width=23pt,ylabel={Task count},xlabel={Stated harm},xtick={0,1,2,3},xticklabels={Low,Medium,High,Severe},legend style={at={(.5,1.23)},anchor=south,legend columns=4},ymin=0]
+\addplot[fill=okblue] table[x=harm,y=comply,col sep=comma]{data/coverage.generated.csv};
+\addplot[fill=okorange] table[x=harm,y=warn,col sep=comma]{data/coverage.generated.csv};
+\addplot[fill=white,pattern=north east lines] table[x=harm,y=pushback,col sep=comma]{data/coverage.generated.csv};
+\addplot[fill=gray] table[x=harm,y=refuse,col sep=comma]{data/coverage.generated.csv};
+\legend{Comply,Warn,Push back,Refuse}\end{axis}\end{tikzpicture}
+\caption{Harm levels do not uniquely determine labels. Counts cover all \taskCount{} tasks in \planCount{} plans. Stacks show expected decisions, not model responses. This is a census of the fixed set; no sampling interval applies.}\label{fig:coverage}\end{figure}

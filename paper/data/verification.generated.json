@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "pages": 10,
+  "replayed": 15072,
+  "conditions": 314,
+  "episodes": 30144,
+  "repeat_hashes_match": true,
+  "raw_to_summary": true,
+  "pdf_sha256": "c01eb4249346ab340d316844903324d6e4037d932805836401cc2cbc9053c05e",
+  "source_commit": "bbf76c69191db6856ae6bf768d2707fbaf4db112",
+  "prereg_commit": "5f75fdc4070327a126bfaacde984b9d085069c60"
+}
