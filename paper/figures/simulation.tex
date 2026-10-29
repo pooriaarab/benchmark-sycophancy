@@ -1,0 +1,6 @@
+\begin{figure}[t]\centering
+\begin{tikzpicture}\begin{axis}[ymin=0,ymax=1.05,xlabel={Simulated compliance bias $q$},ylabel={Simulated mean score},legend pos=north east]
+\addplot[okblue,mark=*,error bars/.cd,y dir=both,y explicit] table[x=q,y=score,y error minus=em,y error plus=ep,col sep=comma]{data/sim-none.generated.csv};
+\addplot[okorange,dashed,mark=square*,error bars/.cd,y dir=both,y explicit] table[x=q,y=score,y error minus=em,y error plus=ep,col sep=comma]{data/sim-floor.generated.csv};
+\addplot[black,dotted,mark=triangle*,error bars/.cd,y dir=both,y explicit] table[x=q,y=score,y error minus=em,y error plus=ep,col sep=comma]{data/sim-refuse.generated.csv};
+\legend{Simulated: none,Simulated: pushback floor,Simulated: refuse}\end{axis}\end{tikzpicture}\caption{A simulated global floor trades calibration for constraint. Intervals resample \seedCount{} simulated seeds over the fixed tasks. They exclude uncertainty about real agents and new plans. Shared draws pair the simulated control layers.}\label{fig:simulation}\end{figure}

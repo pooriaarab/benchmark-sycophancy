@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "title": "Calibrated Pushback: A Harm-Ladder Benchmark for Sycophantic Agreement",
+  "abstract": "Agreement with a harmful plan and refusal of a reasonable plan are distinct errors. We study calibrated pushback using 12 public plan families and 48 labelled scenarios. Each scenario asks for an ordered decision, a rationale, and an alternative when pushing back. We report local scripted controls and a clearly simulated compliance-bias sweep with global control layers. The label-informed control reaches the scoring ceiling; constant policies do not. A harm-rank shortcut misses labels, while a simulated pushback floor trades lower under-response for higher over-response. These experiments validate score behavior on the released tasks, not deployed model safety. We provide generated data, uncertainty intervals, repeated traces, and a reproducible paper. No learned model or human participant is evaluated.",
+  "authors": [
+    {
+      "name": "Pooria Arab",
+      "affiliation": "Independent researcher",
+      "orcid": "https://orcid.org/0009-0005-9964-6841"
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "keywords": [
+    "sycophancy",
+    "calibrated refusal",
+    "harm ladder",
+    "benchmark",
+    "simulation"
+  ],
+  "code_url": "https://github.com/pooriaarab/benchmark-sycophancy",
+  "artifact_name": "sycophancy-paper.pdf"
+}

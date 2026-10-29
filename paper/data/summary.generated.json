@@ -1,0 +1,2064 @@
+{
+  "kind": "scripted-and-simulated",
+  "options": {
+    "seed": 1,
+    "concurrency": 1,
+    "retries": 0,
+    "maxTurns": 1,
+    "maxToolCalls": 1,
+    "budgetUsd": 0
+  },
+  "tasks": 48,
+  "plans": 12,
+  "policies": 14,
+  "conditions": 314,
+  "episodes": 30144,
+  "costUsd": 0,
+  "scoring": {
+    "adjacent": 0.19,
+    "courtesy": 0.25
+  },
+  "coverage": [
+    {
+      "harm": "low",
+      "counts": [
+        9,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "harm": "medium",
+      "counts": [
+        3,
+        7,
+        2,
+        0
+      ]
+    },
+    {
+      "harm": "high",
+      "counts": [
+        0,
+        3,
+        9,
+        0
+      ]
+    },
+    {
+      "harm": "severe",
+      "counts": [
+        0,
+        0,
+        0,
+        12
+      ]
+    }
+  ],
+  "stats": [
+    {
+      "policy": "empty",
+      "score": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "invalid": {
+        "value": 1,
+        "low": 0.9258998703338824,
+        "high": 0.9999999999999999,
+        "k": 48,
+        "n": 48
+      },
+      "under": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "over": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "curve": [
+        {
+          "harm": "low",
+          "meanPushback": null,
+          "observed": 0,
+          "missing": 12
+        },
+        {
+          "harm": "medium",
+          "meanPushback": null,
+          "observed": 0,
+          "missing": 12
+        },
+        {
+          "harm": "high",
+          "meanPushback": null,
+          "observed": 0,
+          "missing": 12
+        },
+        {
+          "harm": "severe",
+          "meanPushback": null,
+          "observed": 0,
+          "missing": 12
+        }
+      ],
+      "correlation": null
+    },
+    {
+      "policy": "constant-text",
+      "score": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "invalid": {
+        "value": 1,
+        "low": 0.9258998703338824,
+        "high": 0.9999999999999999,
+        "k": 48,
+        "n": 48
+      },
+      "under": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "over": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "curve": [
+        {
+          "harm": "low",
+          "meanPushback": null,
+          "observed": 0,
+          "missing": 12
+        },
+        {
+          "harm": "medium",
+          "meanPushback": null,
+          "observed": 0,
+          "missing": 12
+        },
+        {
+          "harm": "high",
+          "meanPushback": null,
+          "observed": 0,
+          "missing": 12
+        },
+        {
+          "harm": "severe",
+          "meanPushback": null,
+          "observed": 0,
+          "missing": 12
+        }
+      ],
+      "correlation": null
+    },
+    {
+      "policy": "echo",
+      "score": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "invalid": {
+        "value": 1,
+        "low": 0.9258998703338824,
+        "high": 0.9999999999999999,
+        "k": 48,
+        "n": 48
+      },
+      "under": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "over": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "curve": [
+        {
+          "harm": "low",
+          "meanPushback": null,
+          "observed": 0,
+          "missing": 12
+        },
+        {
+          "harm": "medium",
+          "meanPushback": null,
+          "observed": 0,
+          "missing": 12
+        },
+        {
+          "harm": "high",
+          "meanPushback": null,
+          "observed": 0,
+          "missing": 12
+        },
+        {
+          "harm": "severe",
+          "meanPushback": null,
+          "observed": 0,
+          "missing": 12
+        }
+      ],
+      "correlation": null
+    },
+    {
+      "policy": "text-refuse",
+      "score": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "invalid": {
+        "value": 1,
+        "low": 0.9258998703338824,
+        "high": 0.9999999999999999,
+        "k": 48,
+        "n": 48
+      },
+      "under": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "over": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "curve": [
+        {
+          "harm": "low",
+          "meanPushback": null,
+          "observed": 0,
+          "missing": 12
+        },
+        {
+          "harm": "medium",
+          "meanPushback": null,
+          "observed": 0,
+          "missing": 12
+        },
+        {
+          "harm": "high",
+          "meanPushback": null,
+          "observed": 0,
+          "missing": 12
+        },
+        {
+          "harm": "severe",
+          "meanPushback": null,
+          "observed": 0,
+          "missing": 12
+        }
+      ],
+      "correlation": null
+    },
+    {
+      "policy": "first-tool",
+      "score": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "invalid": {
+        "value": 1,
+        "low": 0.9258998703338824,
+        "high": 0.9999999999999999,
+        "k": 48,
+        "n": 48
+      },
+      "under": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "over": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "curve": [
+        {
+          "harm": "low",
+          "meanPushback": null,
+          "observed": 0,
+          "missing": 12
+        },
+        {
+          "harm": "medium",
+          "meanPushback": null,
+          "observed": 0,
+          "missing": 12
+        },
+        {
+          "harm": "high",
+          "meanPushback": null,
+          "observed": 0,
+          "missing": 12
+        },
+        {
+          "harm": "severe",
+          "meanPushback": null,
+          "observed": 0,
+          "missing": 12
+        }
+      ],
+      "correlation": null
+    },
+    {
+      "policy": "packaged-good",
+      "score": {
+        "value": 1,
+        "low": 1,
+        "high": 1,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 1,
+        "low": 0.9258998703338824,
+        "high": 0.9999999999999999,
+        "k": 48,
+        "n": 48
+      },
+      "invalid": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "under": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "over": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "curve": [
+        {
+          "harm": "low",
+          "meanPushback": 0.3333333333333333,
+          "observed": 12,
+          "missing": 0
+        },
+        {
+          "harm": "medium",
+          "meanPushback": 0.9166666666666666,
+          "observed": 12,
+          "missing": 0
+        },
+        {
+          "harm": "high",
+          "meanPushback": 1.75,
+          "observed": 12,
+          "missing": 0
+        },
+        {
+          "harm": "severe",
+          "meanPushback": 3,
+          "observed": 12,
+          "missing": 0
+        }
+      ],
+      "correlation": 0.8833333333333333
+    },
+    {
+      "policy": "packaged-bad",
+      "score": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "invalid": {
+        "value": 1,
+        "low": 0.9258998703338824,
+        "high": 0.9999999999999999,
+        "k": 48,
+        "n": 48
+      },
+      "under": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "over": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "curve": [
+        {
+          "harm": "low",
+          "meanPushback": null,
+          "observed": 0,
+          "missing": 12
+        },
+        {
+          "harm": "medium",
+          "meanPushback": null,
+          "observed": 0,
+          "missing": 12
+        },
+        {
+          "harm": "high",
+          "meanPushback": null,
+          "observed": 0,
+          "missing": 12
+        },
+        {
+          "harm": "severe",
+          "meanPushback": null,
+          "observed": 0,
+          "missing": 12
+        }
+      ],
+      "correlation": null
+    },
+    {
+      "policy": "comply",
+      "score": {
+        "value": 0.29749999999999993,
+        "low": 0.21020833333333333,
+        "high": 0.381875,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 0.25,
+        "low": 0.1492063367379791,
+        "high": 0.3878437280950796,
+        "k": 12,
+        "n": 48
+      },
+      "invalid": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "under": {
+        "value": 0.75,
+        "low": 0.6121562719049204,
+        "high": 0.8507936632620209,
+        "k": 36,
+        "n": 48
+      },
+      "over": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "curve": [
+        {
+          "harm": "low",
+          "meanPushback": 0,
+          "observed": 12,
+          "missing": 0
+        },
+        {
+          "harm": "medium",
+          "meanPushback": 0,
+          "observed": 12,
+          "missing": 0
+        },
+        {
+          "harm": "high",
+          "meanPushback": 0,
+          "observed": 12,
+          "missing": 0
+        },
+        {
+          "harm": "severe",
+          "meanPushback": 0,
+          "observed": 12,
+          "missing": 0
+        }
+      ],
+      "correlation": null
+    },
+    {
+      "policy": "comply_with_warning",
+      "score": {
+        "value": 0.34500000000000003,
+        "low": 0.24375000000000005,
+        "high": 0.44625,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 0.25,
+        "low": 0.1492063367379791,
+        "high": 0.3878437280950796,
+        "k": 12,
+        "n": 48
+      },
+      "invalid": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "under": {
+        "value": 0.5,
+        "low": 0.36389330502679385,
+        "high": 0.6361066949732062,
+        "k": 24,
+        "n": 48
+      },
+      "over": {
+        "value": 0.25,
+        "low": 0.1492063367379791,
+        "high": 0.3878437280950796,
+        "k": 12,
+        "n": 48
+      },
+      "curve": [
+        {
+          "harm": "low",
+          "meanPushback": 1,
+          "observed": 12,
+          "missing": 0
+        },
+        {
+          "harm": "medium",
+          "meanPushback": 1,
+          "observed": 12,
+          "missing": 0
+        },
+        {
+          "harm": "high",
+          "meanPushback": 1,
+          "observed": 12,
+          "missing": 0
+        },
+        {
+          "harm": "severe",
+          "meanPushback": 1,
+          "observed": 12,
+          "missing": 0
+        }
+      ],
+      "correlation": null
+    },
+    {
+      "policy": "push_back",
+      "score": {
+        "value": 0.345,
+        "low": 0.25770833333333326,
+        "high": 0.4372916666666666,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 0.25,
+        "low": 0.1492063367379791,
+        "high": 0.3878437280950796,
+        "k": 12,
+        "n": 48
+      },
+      "invalid": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "under": {
+        "value": 0.25,
+        "low": 0.1492063367379791,
+        "high": 0.3878437280950796,
+        "k": 12,
+        "n": 48
+      },
+      "over": {
+        "value": 0.5,
+        "low": 0.36389330502679385,
+        "high": 0.6361066949732062,
+        "k": 24,
+        "n": 48
+      },
+      "curve": [
+        {
+          "harm": "low",
+          "meanPushback": 2,
+          "observed": 12,
+          "missing": 0
+        },
+        {
+          "harm": "medium",
+          "meanPushback": 2,
+          "observed": 12,
+          "missing": 0
+        },
+        {
+          "harm": "high",
+          "meanPushback": 2,
+          "observed": 12,
+          "missing": 0
+        },
+        {
+          "harm": "severe",
+          "meanPushback": 2,
+          "observed": 12,
+          "missing": 0
+        }
+      ],
+      "correlation": null
+    },
+    {
+      "policy": "refuse",
+      "score": {
+        "value": 0.29749999999999993,
+        "low": 0.2777083333333333,
+        "high": 0.3172916666666666,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 0.25,
+        "low": 0.1492063367379791,
+        "high": 0.3878437280950796,
+        "k": 12,
+        "n": 48
+      },
+      "invalid": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "under": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "over": {
+        "value": 0.75,
+        "low": 0.6121562719049204,
+        "high": 0.8507936632620209,
+        "k": 36,
+        "n": 48
+      },
+      "curve": [
+        {
+          "harm": "low",
+          "meanPushback": 3,
+          "observed": 12,
+          "missing": 0
+        },
+        {
+          "harm": "medium",
+          "meanPushback": 3,
+          "observed": 12,
+          "missing": 0
+        },
+        {
+          "harm": "high",
+          "meanPushback": 3,
+          "observed": 12,
+          "missing": 0
+        },
+        {
+          "harm": "severe",
+          "meanPushback": 3,
+          "observed": 12,
+          "missing": 0
+        }
+      ],
+      "correlation": null
+    },
+    {
+      "policy": "harm-rank",
+      "score": {
+        "value": 0.8104166666666667,
+        "low": 0.7597916666666666,
+        "high": 0.8650000000000001,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 0.7708333333333334,
+        "low": 0.6346073590999655,
+        "high": 0.8669217373308877,
+        "k": 37,
+        "n": 48
+      },
+      "invalid": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "under": {
+        "value": 0.10416666666666667,
+        "low": 0.045321719041813105,
+        "high": 0.2216742169438633,
+        "k": 5,
+        "n": 48
+      },
+      "over": {
+        "value": 0.125,
+        "low": 0.058570514385719794,
+        "high": 0.24700458286386834,
+        "k": 6,
+        "n": 48
+      },
+      "curve": [
+        {
+          "harm": "low",
+          "meanPushback": 0,
+          "observed": 12,
+          "missing": 0
+        },
+        {
+          "harm": "medium",
+          "meanPushback": 1,
+          "observed": 12,
+          "missing": 0
+        },
+        {
+          "harm": "high",
+          "meanPushback": 2,
+          "observed": 12,
+          "missing": 0
+        },
+        {
+          "harm": "severe",
+          "meanPushback": 3,
+          "observed": 12,
+          "missing": 0
+        }
+      ],
+      "correlation": 1
+    },
+    {
+      "policy": "oracle-no-alternative",
+      "score": {
+        "value": 0.7975,
+        "low": 0.7131250000000001,
+        "high": 0.881875,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 1,
+        "low": 0.9258998703338824,
+        "high": 0.9999999999999999,
+        "k": 48,
+        "n": 48
+      },
+      "invalid": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "under": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "over": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "curve": [
+        {
+          "harm": "low",
+          "meanPushback": 0.3333333333333333,
+          "observed": 12,
+          "missing": 0
+        },
+        {
+          "harm": "medium",
+          "meanPushback": 0.9166666666666666,
+          "observed": 12,
+          "missing": 0
+        },
+        {
+          "harm": "high",
+          "meanPushback": 1.75,
+          "observed": 12,
+          "missing": 0
+        },
+        {
+          "harm": "severe",
+          "meanPushback": 3,
+          "observed": 12,
+          "missing": 0
+        }
+      ],
+      "correlation": 0.8833333333333333
+    },
+    {
+      "policy": "oracle-rude",
+      "score": {
+        "value": 0.75,
+        "low": 0.75,
+        "high": 0.75,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 1,
+        "low": 0.9258998703338824,
+        "high": 0.9999999999999999,
+        "k": 48,
+        "n": 48
+      },
+      "invalid": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "under": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "over": {
+        "value": 0,
+        "low": 6.938893903907228e-18,
+        "high": 0.07410012966611748,
+        "k": 0,
+        "n": 48
+      },
+      "curve": [
+        {
+          "harm": "low",
+          "meanPushback": 0.3333333333333333,
+          "observed": 12,
+          "missing": 0
+        },
+        {
+          "harm": "medium",
+          "meanPushback": 0.9166666666666666,
+          "observed": 12,
+          "missing": 0
+        },
+        {
+          "harm": "high",
+          "meanPushback": 1.75,
+          "observed": 12,
+          "missing": 0
+        },
+        {
+          "harm": "severe",
+          "meanPushback": 3,
+          "observed": 12,
+          "missing": 0
+        }
+      ],
+      "correlation": 0.8833333333333333
+    }
+  ],
+  "simulations": [
+    {
+      "q": 0,
+      "layer": "none",
+      "seeds": 20,
+      "score": {
+        "value": 1,
+        "low": 1,
+        "high": 1,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 1,
+        "low": 1,
+        "high": 1,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "invalid": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "under": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "over": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "contrasts": {
+        "score": {
+          "value": 0,
+          "low": 0,
+          "high": 0,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "under": {
+          "value": 0,
+          "low": 0,
+          "high": 0,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "over": {
+          "value": 0,
+          "low": 0,
+          "high": 0,
+          "draws": 2000,
+          "seed": 20261029
+        }
+      }
+    },
+    {
+      "q": 0,
+      "layer": "floor",
+      "seeds": 20,
+      "score": {
+        "value": 0.5475000000000001,
+        "low": 0.5475000000000001,
+        "high": 0.5475000000000001,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 0.5,
+        "low": 0.5,
+        "high": 0.5,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "invalid": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "under": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "over": {
+        "value": 0.5,
+        "low": 0.5,
+        "high": 0.5,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "contrasts": {
+        "score": {
+          "value": -0.45249999999999985,
+          "low": -0.45249999999999985,
+          "high": -0.45249999999999985,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "under": {
+          "value": 0,
+          "low": 0,
+          "high": 0,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "over": {
+          "value": 0.5,
+          "low": 0.5,
+          "high": 0.5,
+          "draws": 2000,
+          "seed": 20261029
+        }
+      }
+    },
+    {
+      "q": 0,
+      "layer": "refuse",
+      "seeds": 20,
+      "score": {
+        "value": 0.29750000000000004,
+        "low": 0.29750000000000004,
+        "high": 0.29750000000000004,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 0.25,
+        "low": 0.25,
+        "high": 0.25,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "invalid": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "under": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "over": {
+        "value": 0.75,
+        "low": 0.75,
+        "high": 0.75,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "contrasts": {
+        "score": {
+          "value": -0.7025000000000003,
+          "low": -0.7025000000000003,
+          "high": -0.7025000000000003,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "under": {
+          "value": 0,
+          "low": 0,
+          "high": 0,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "over": {
+          "value": 0.75,
+          "low": 0.75,
+          "high": 0.75,
+          "draws": 2000,
+          "seed": 20261029
+        }
+      }
+    },
+    {
+      "q": 0.25,
+      "layer": "none",
+      "seeds": 20,
+      "score": {
+        "value": 0.8241249999999999,
+        "low": 0.8058749999999998,
+        "high": 0.8421354166666667,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 0.8114583333333332,
+        "low": 0.7916666666666667,
+        "high": 0.83125,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "invalid": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "under": {
+        "value": 0.18854166666666666,
+        "low": 0.16875,
+        "high": 0.20833333333333331,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "over": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "contrasts": {
+        "score": {
+          "value": 0,
+          "low": 0,
+          "high": 0,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "under": {
+          "value": 0,
+          "low": 0,
+          "high": 0,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "over": {
+          "value": 0,
+          "low": 0,
+          "high": 0,
+          "draws": 2000,
+          "seed": 20261029
+        }
+      }
+    },
+    {
+      "q": 0.25,
+      "layer": "floor",
+      "seeds": 20,
+      "score": {
+        "value": 0.5027812500000002,
+        "low": 0.49349999999999994,
+        "high": 0.5103750000000002,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 0.4447916666666666,
+        "low": 0.4333333333333333,
+        "high": 0.4541666666666668,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "invalid": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "under": {
+        "value": 0.055208333333333325,
+        "low": 0.04583333333333332,
+        "high": 0.06666666666666668,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "over": {
+        "value": 0.5,
+        "low": 0.5,
+        "high": 0.5,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "contrasts": {
+        "score": {
+          "value": -0.3213437499999998,
+          "low": -0.3367291666666665,
+          "high": -0.3069062499999998,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "under": {
+          "value": -0.13333333333333333,
+          "low": -0.15000000000000002,
+          "high": -0.115625,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "over": {
+          "value": 0.5,
+          "low": 0.5,
+          "high": 0.5,
+          "draws": 2000,
+          "seed": 20261029
+        }
+      }
+    },
+    {
+      "q": 0.25,
+      "layer": "refuse",
+      "seeds": 20,
+      "score": {
+        "value": 0.29750000000000004,
+        "low": 0.29750000000000004,
+        "high": 0.29750000000000004,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 0.25,
+        "low": 0.25,
+        "high": 0.25,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "invalid": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "under": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "over": {
+        "value": 0.75,
+        "low": 0.75,
+        "high": 0.75,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "contrasts": {
+        "score": {
+          "value": -0.5266250000000001,
+          "low": -0.5445833333333333,
+          "high": -0.5082708333333333,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "under": {
+          "value": -0.18854166666666666,
+          "low": -0.20833333333333331,
+          "high": -0.16875,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "over": {
+          "value": 0.75,
+          "low": 0.75,
+          "high": 0.75,
+          "draws": 2000,
+          "seed": 20261029
+        }
+      }
+    },
+    {
+      "q": 0.5,
+      "layer": "none",
+      "seeds": 20,
+      "score": {
+        "value": 0.6589687500000001,
+        "low": 0.6384791666666667,
+        "high": 0.6807916666666667,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 0.6354166666666667,
+        "low": 0.6135416666666668,
+        "high": 0.6583333333333334,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "invalid": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "under": {
+        "value": 0.36458333333333337,
+        "low": 0.3416666666666667,
+        "high": 0.38645833333333335,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "over": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "contrasts": {
+        "score": {
+          "value": 0,
+          "low": 0,
+          "high": 0,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "under": {
+          "value": 0,
+          "low": 0,
+          "high": 0,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "over": {
+          "value": 0,
+          "low": 0,
+          "high": 0,
+          "draws": 2000,
+          "seed": 20261029
+        }
+      }
+    },
+    {
+      "q": 0.5,
+      "layer": "floor",
+      "seeds": 20,
+      "score": {
+        "value": 0.4521562500000001,
+        "low": 0.43865625,
+        "high": 0.4665000000000001,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 0.3822916666666667,
+        "low": 0.365625,
+        "high": 0.4,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "invalid": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "under": {
+        "value": 0.11770833333333335,
+        "low": 0.09999999999999999,
+        "high": 0.13437500000000002,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "over": {
+        "value": 0.5,
+        "low": 0.5,
+        "high": 0.5,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "contrasts": {
+        "score": {
+          "value": -0.2068125,
+          "low": -0.22234375,
+          "high": -0.1922708333333334,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "under": {
+          "value": -0.246875,
+          "low": -0.2635416666666667,
+          "high": -0.22916666666666669,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "over": {
+          "value": 0.5,
+          "low": 0.5,
+          "high": 0.5,
+          "draws": 2000,
+          "seed": 20261029
+        }
+      }
+    },
+    {
+      "q": 0.5,
+      "layer": "refuse",
+      "seeds": 20,
+      "score": {
+        "value": 0.29750000000000004,
+        "low": 0.29750000000000004,
+        "high": 0.29750000000000004,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 0.25,
+        "low": 0.25,
+        "high": 0.25,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "invalid": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "under": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "over": {
+        "value": 0.75,
+        "low": 0.75,
+        "high": 0.75,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "contrasts": {
+        "score": {
+          "value": -0.3614687500000001,
+          "low": -0.3831458333333336,
+          "high": -0.3409791666666668,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "under": {
+          "value": -0.36458333333333337,
+          "low": -0.38645833333333335,
+          "high": -0.3416666666666667,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "over": {
+          "value": 0.75,
+          "low": 0.75,
+          "high": 0.75,
+          "draws": 2000,
+          "seed": 20261029
+        }
+      }
+    },
+    {
+      "q": 0.75,
+      "layer": "none",
+      "seeds": 20,
+      "score": {
+        "value": 0.4803645833333333,
+        "low": 0.46052083333333343,
+        "high": 0.5009062500000001,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 0.44375,
+        "low": 0.4229166666666668,
+        "high": 0.4645833333333334,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "invalid": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "under": {
+        "value": 0.5562499999999999,
+        "low": 0.5354166666666667,
+        "high": 0.5770833333333333,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "over": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "contrasts": {
+        "score": {
+          "value": 0,
+          "low": 0,
+          "high": 0,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "under": {
+          "value": 0,
+          "low": 0,
+          "high": 0,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "over": {
+          "value": 0,
+          "low": 0,
+          "high": 0,
+          "draws": 2000,
+          "seed": 20261029
+        }
+      }
+    },
+    {
+      "q": 0.75,
+      "layer": "floor",
+      "seeds": 20,
+      "score": {
+        "value": 0.4032187499999999,
+        "low": 0.39225000000000004,
+        "high": 0.41587500000000005,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 0.3218749999999999,
+        "low": 0.3083333333333333,
+        "high": 0.3375,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "invalid": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "under": {
+        "value": 0.17812499999999998,
+        "low": 0.1625,
+        "high": 0.19166666666666668,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "over": {
+        "value": 0.5,
+        "low": 0.5,
+        "high": 0.5,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "contrasts": {
+        "score": {
+          "value": -0.07714583333333339,
+          "low": -0.09122916666666671,
+          "high": -0.06375000000000001,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "under": {
+          "value": -0.37812500000000004,
+          "low": -0.3927083333333333,
+          "high": -0.36354166666666665,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "over": {
+          "value": 0.5,
+          "low": 0.5,
+          "high": 0.5,
+          "draws": 2000,
+          "seed": 20261029
+        }
+      }
+    },
+    {
+      "q": 0.75,
+      "layer": "refuse",
+      "seeds": 20,
+      "score": {
+        "value": 0.29750000000000004,
+        "low": 0.29750000000000004,
+        "high": 0.29750000000000004,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 0.25,
+        "low": 0.25,
+        "high": 0.25,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "invalid": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "under": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "over": {
+        "value": 0.75,
+        "low": 0.75,
+        "high": 0.75,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "contrasts": {
+        "score": {
+          "value": -0.1828645833333335,
+          "low": -0.20340625000000015,
+          "high": -0.16287500000000013,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "under": {
+          "value": -0.5562499999999999,
+          "low": -0.5770833333333333,
+          "high": -0.5354166666666667,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "over": {
+          "value": 0.75,
+          "low": 0.75,
+          "high": 0.75,
+          "draws": 2000,
+          "seed": 20261029
+        }
+      }
+    },
+    {
+      "q": 1,
+      "layer": "none",
+      "seeds": 20,
+      "score": {
+        "value": 0.29750000000000004,
+        "low": 0.29750000000000004,
+        "high": 0.29750000000000004,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 0.25,
+        "low": 0.25,
+        "high": 0.25,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "invalid": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "under": {
+        "value": 0.75,
+        "low": 0.75,
+        "high": 0.75,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "over": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "contrasts": {
+        "score": {
+          "value": 0,
+          "low": 0,
+          "high": 0,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "under": {
+          "value": 0,
+          "low": 0,
+          "high": 0,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "over": {
+          "value": 0,
+          "low": 0,
+          "high": 0,
+          "draws": 2000,
+          "seed": 20261029
+        }
+      }
+    },
+    {
+      "q": 1,
+      "layer": "floor",
+      "seeds": 20,
+      "score": {
+        "value": 0.345,
+        "low": 0.345,
+        "high": 0.345,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 0.25,
+        "low": 0.25,
+        "high": 0.25,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "invalid": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "under": {
+        "value": 0.25,
+        "low": 0.25,
+        "high": 0.25,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "over": {
+        "value": 0.5,
+        "low": 0.5,
+        "high": 0.5,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "contrasts": {
+        "score": {
+          "value": 0.0475000000000001,
+          "low": 0.0475000000000001,
+          "high": 0.0475000000000001,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "under": {
+          "value": -0.5,
+          "low": -0.5,
+          "high": -0.5,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "over": {
+          "value": 0.5,
+          "low": 0.5,
+          "high": 0.5,
+          "draws": 2000,
+          "seed": 20261029
+        }
+      }
+    },
+    {
+      "q": 1,
+      "layer": "refuse",
+      "seeds": 20,
+      "score": {
+        "value": 0.29750000000000004,
+        "low": 0.29750000000000004,
+        "high": 0.29750000000000004,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "exact": {
+        "value": 0.25,
+        "low": 0.25,
+        "high": 0.25,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "invalid": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "under": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "over": {
+        "value": 0.75,
+        "low": 0.75,
+        "high": 0.75,
+        "draws": 2000,
+        "seed": 20261029
+      },
+      "contrasts": {
+        "score": {
+          "value": 0,
+          "low": 0,
+          "high": 0,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "under": {
+          "value": -0.75,
+          "low": -0.75,
+          "high": -0.75,
+          "draws": 2000,
+          "seed": 20261029
+        },
+        "over": {
+          "value": 0.75,
+          "low": 0.75,
+          "high": 0.75,
+          "draws": 2000,
+          "seed": 20261029
+        }
+      }
+    }
+  ],
+  "contrasts": [
+    {
+      "policy": "empty",
+      "score": {
+        "value": -1,
+        "low": -1,
+        "high": -1,
+        "draws": 2000,
+        "seed": 20261029
+      }
+    },
+    {
+      "policy": "constant-text",
+      "score": {
+        "value": -1,
+        "low": -1,
+        "high": -1,
+        "draws": 2000,
+        "seed": 20261029
+      }
+    },
+    {
+      "policy": "echo",
+      "score": {
+        "value": -1,
+        "low": -1,
+        "high": -1,
+        "draws": 2000,
+        "seed": 20261029
+      }
+    },
+    {
+      "policy": "text-refuse",
+      "score": {
+        "value": -1,
+        "low": -1,
+        "high": -1,
+        "draws": 2000,
+        "seed": 20261029
+      }
+    },
+    {
+      "policy": "first-tool",
+      "score": {
+        "value": -1,
+        "low": -1,
+        "high": -1,
+        "draws": 2000,
+        "seed": 20261029
+      }
+    },
+    {
+      "policy": "packaged-good",
+      "score": {
+        "value": 0,
+        "low": 0,
+        "high": 0,
+        "draws": 2000,
+        "seed": 20261029
+      }
+    },
+    {
+      "policy": "packaged-bad",
+      "score": {
+        "value": -1,
+        "low": -1,
+        "high": -1,
+        "draws": 2000,
+        "seed": 20261029
+      }
+    },
+    {
+      "policy": "comply",
+      "score": {
+        "value": -0.7025,
+        "low": -0.7897916666666668,
+        "high": -0.6181249999999999,
+        "draws": 2000,
+        "seed": 20261029
+      }
+    },
+    {
+      "policy": "comply_with_warning",
+      "score": {
+        "value": -0.6549999999999999,
+        "low": -0.75625,
+        "high": -0.55375,
+        "draws": 2000,
+        "seed": 20261029
+      }
+    },
+    {
+      "policy": "push_back",
+      "score": {
+        "value": -0.6549999999999999,
+        "low": -0.7422916666666667,
+        "high": -0.5627083333333335,
+        "draws": 2000,
+        "seed": 20261029
+      }
+    },
+    {
+      "policy": "refuse",
+      "score": {
+        "value": -0.7025,
+        "low": -0.7222916666666667,
+        "high": -0.6827083333333334,
+        "draws": 2000,
+        "seed": 20261029
+      }
+    },
+    {
+      "policy": "harm-rank",
+      "score": {
+        "value": -0.18958333333333335,
+        "low": -0.24020833333333344,
+        "high": -0.13500000000000004,
+        "draws": 2000,
+        "seed": 20261029
+      }
+    },
+    {
+      "policy": "oracle-no-alternative",
+      "score": {
+        "value": -0.20250000000000004,
+        "low": -0.28687500000000005,
+        "high": -0.11812500000000004,
+        "draws": 2000,
+        "seed": 20261029
+      }
+    },
+    {
+      "policy": "oracle-rude",
+      "score": {
+        "value": -0.25,
+        "low": -0.25,
+        "high": -0.25,
+        "draws": 2000,
+        "seed": 20261029
+      }
+    }
+  ],
+  "freeModels": {
+    "status": "not-run",
+    "reason": "No guarded endpoint configured for this study; provider availability untested."
+  }
+}

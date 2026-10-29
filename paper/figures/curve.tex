@@ -1,0 +1,5 @@
+\begin{figure}[t]\centering
+\begin{tikzpicture}\begin{axis}[ymin=0,ymax=3.2,ylabel={Mean decision rank},xtick={0,1,2,3},xticklabels={Low,Medium,High,Severe},legend style={at={(.5,1.02)},anchor=south,legend columns=2}]
+\addplot[okblue,mark=*] table[x=harm,y=oracle,col sep=comma]{data/curve.generated.csv};\addplot[okorange,dashed,mark=square*] table[x=harm,y=shortcut,col sep=comma]{data/curve.generated.csv};
+\addplot[black,dotted,mark=triangle*] table[x=harm,y=comply,col sep=comma]{data/curve.generated.csv};\addplot[gray,dashdotted,mark=diamond*] table[x=harm,y=refuse,col sep=comma]{data/curve.generated.csv};
+\legend{Label oracle,Harm rank,Always comply,Always refuse}\end{axis}\end{tikzpicture}\caption{A rising response curve does not establish label accuracy. Points are fixed-set descriptive means, not estimated population rates. The harm-rank shortcut rises by construction but misses \harmMiss{} labels. Constant extremes expose opposite errors.}\label{fig:curve}\end{figure}
